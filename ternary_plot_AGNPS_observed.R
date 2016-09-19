@@ -1,10 +1,12 @@
 
 library(vcd)
 
-indir = "G:/mydocuments/SDSU/research/tijuana_watershed/los_laureles_canyon/models/"
-fname = "sed_load_by_texture_AGNPS_observed.csv"
+#indir = "G:/mydocuments/SDSU/research/tijuana_watershed/los_laureles_canyon/models/"
+#fname = "sed_load_by_texture_AGNPS_observed.csv"
+#x = read.csv(paste0(indir,fname))
 
-x = read.csv(paste0(indir,fname))
+url.sed.text.traps.model = "https://raw.githubusercontent.com/tbiggsgithub/EPA_modeling_report_R_files/master/data_files/sed_load_by_texture_AGNPS_observed.csv"
+x = read.csv(url.sed.text.traps.model)
 
 tots = rowSums(x[,2:4])
 
@@ -17,7 +19,7 @@ pchvec = c(rep(20,times=N.agnps),rep(2,times=N.obs),rep(3,times=1))
 
 
 ternaryplot(x.norm,pch=pchvec,main="",col="black")
-legend("topright",c("AGNPS","Observed.corrected","Observed.uncorrected"),pch=c(20,2,3),col="black")
+grid_legend(0.75,0.75,pch=c(20,2,3),col="black",labels=c("AGNPS","Obs.corrected","Obs.uncorrected"))
 
 
 #  Read in and plot texture from the SSURGO soils (as currently in AGNPS) and from 
