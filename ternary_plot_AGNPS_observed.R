@@ -17,7 +17,6 @@ N.obs = length(grep("Corrected.",x$Type))
 
 pchvec = c(rep(20,times=N.agnps),rep(2,times=N.obs),rep(3,times=1))
 
-
 ternaryplot(x.norm,pch=pchvec,main="",col="black")
 grid_legend(0.75,0.75,pch=c(20,2,3),col="black",labels=c("AGNPS","Obs.corrected","Obs.uncorrected"))
 
